@@ -1,22 +1,11 @@
-<header class="z-50 navbar bg-base-100">
+<header class="z-50 navbar bg-base-200 fixed border-b-2 border-primary">
   <div class="navbar-start">
-    <div class="dropdown">
-      <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
-      </div>
-      <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-        <li><a>Item 1</a></li>
-        <li>
-          <a>Parent</a>
-          <ul class="p-2">
-            <li><a>Submenu 1</a></li>
-            <li><a>Submenu 2</a></li>
-          </ul>
-        </li>
-        <li><a>Item 3</a></li>
-      </ul>
-    </div>
-    <a class="btn btn-ghost text-xl">daisyUI</a>
+    <a class="text-xl flex flex-col cursor-pointer">
+      <span class="font-bold">RettVest</span>
+      <small class="text-sm">
+        Hjemmekennel & Pensjonat
+      </small>
+    </a>
   </div>
   <div class="navbar-center hidden lg:flex">
     <ul class="menu menu-horizontal px-1">
@@ -33,7 +22,52 @@
       <li><a>Item 3</a></li>
     </ul>
   </div>
+
   <div class="navbar-end">
-    <a class="btn">Button</a>
+    <div>
+      <input type="checkbox" class="drawer-toggle" />
+      <div class="drawer-content">
+        <!-- Page content here -->
+        <label class="btn btn-circle swap swap-rotate">
+          
+          <!-- this hidden checkbox controls the state -->
+          <input type="checkbox" (click)="toggleMenu()" />
+          <svg class="swap-off fill-current" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 512 512"><path d="M64,384H448V341.33H64Zm0-106.67H448V234.67H64ZM64,128v42.67H448V128Z"/></svg>
+          <svg class="swap-on fill-current" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 512 512"><polygon points="400 145.49 366.51 112 256 222.51 145.49 112 112 145.49 222.51 256 112 366.51 145.49 400 256 289.49 366.51 400 400 366.51 289.49 256 400 145.49"/></svg>
+          
+        </label>
+      </div> 
+    </div>
   </div>
 </header>
+
+<div
+  class="
+    menu-sidebar
+    z-20
+    fixed
+    top-0
+    w-full
+    h-screen
+    pt-20
+    flex
+    flex-col
+    bg-base-200
+  "
+  ngClass="{{ menuOpen ? 'open' : 'closed' }}"
+>
+
+  <span class="text-xl font-bold py-2 px-6 uppercase">Meny</span>
+
+  <ul class="menu menu-sm w-full">
+    <li *ngFor="let menuItem of menuItems">
+      <a
+        routerLink="{{ menuItem.href }}"
+        class="py-4 px-6 text-lg"
+      >
+        {{ menuItem.text }}
+      </a>
+    </li>
+  </ul>
+
+</div>
