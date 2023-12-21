@@ -1,5 +1,7 @@
 # RettVest
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/6127e6ad-a977-4547-9845-1ff12710c13f/deploy-status)](https://app.netlify.com/sites/rettvest/deploys)
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.7.
 
 ## Development server
