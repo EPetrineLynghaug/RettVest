@@ -2,7 +2,7 @@
   <div class="navbar-start">
     <a class="text-xl flex flex-col cursor-pointer">
       <span class="font-bold">RettVest</span>
-      <small class="text-sm">
+      <small class="text-sm text-primary-content">
         Hjemmekennel & Pensjonat
       </small>
     </a>
@@ -28,7 +28,7 @@
       <input type="checkbox" class="drawer-toggle" />
       <div class="drawer-content">
         <!-- Page content here -->
-        <label class="btn btn-circle swap swap-rotate">
+        <label class="btn btn-square btn-primary text-base-200 swap swap-rotate">
           
           <!-- this hidden checkbox controls the state -->
           <input type="checkbox" (click)="toggleMenu()" />
@@ -65,6 +65,7 @@
         routerLink="{{ menuItem.href }}"
         class="py-4 px-6 text-lg"
       >
+      <span class="material-symbols-outlined"> home </span>
         {{ menuItem.text }}
       </a>
     </li>

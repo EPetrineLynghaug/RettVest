@@ -1,10 +1,19 @@
-<div class="hero min-h-screen bg-fixed" style="background-image: url(https://daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.jpg);">
-  <div class="hero-overlay bg-opacity-60"></div>
+<div class="hero min-h-screen bg-fixed">
+  <div class="hero-overlay bg-opacity-70"></div>
   <div class="hero-content text-center text-neutral-content">
     <div class="max-w-md">
-      <h1 class="mb-5 text-5xl font-bold">Hello there</h1>
-      <p class="mb-5">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
-      <button class="btn btn-primary">Get Started</button>
+      <h1 class="mb-5 text-5xl font-bold flex flex-col">
+        RettVest
+        <small class="text-lg text-primary">
+          Hjemmekennel & Pensjonat
+        </small>
+      </h1>
+      <p class="mb-7 font-bold">
+        Koselig hjemmekennel med fokus på trivsel og hygge.
+      </p>
+      <button class="btn btn-primary text-base-200 uppercase shadow-sm">
+        Gå til booking
+      </button>
     </div>
   </div>
 </div>
@@ -13,7 +22,18 @@
   <h2 class="mb-5 text-2xl font-bold">
     Våre tjenester
   </h2>
-  <p>
-    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veritatis omnis possimus fugit rem? Sunt, molestias. Voluptates modi, atque molestiae reprehenderit possimus corrupti adipisci quia dolor, qui quo eveniet distinctio fugiat.
-  </p>
+
+  <div>
+    <div
+      *ngFor="let service of serviceItems"
+      class="w-full flex flex-col items-center py-8 px-4 bg-base-200 shadow-md rounded-md my-6"
+    >
+      <span class="material-symbols-outlined text-primary text-4xl">{{ service.icon }}</span>
+      <div class="divider divider-primary">
+        <h3 class="text-xl font-bold">{{ service.text }}</h3>
+      </div>
+      <p>{{ service.description }}</p>
+    </div>
+  </div>
+    
 </section>

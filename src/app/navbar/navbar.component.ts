@@ -28,16 +28,16 @@ export class NavbarComponent implements OnInit {
        text: "Om oss",
        href: "/omoss",
     },
-  {
-    id: 2,
-    text: "RAWFÔR",
-    href: "/rawför",
- },
- {
-  id: 3,
-  text: "Kontakt oss",
-  href: "/kontakt",
-},
+    {
+      id: 2,
+      text: "RAWFÔR",
+      href: "/rawför",
+    },
+    {
+      id: 3,
+      text: "Kontakt oss",
+      href: "/kontakt",
+    },
   ];
 
   constructor() {}
