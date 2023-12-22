@@ -19,20 +19,20 @@ export class HomePageComponent implements OnInit {
     {
       id: 0,
       text: "Hjemmekennel", 
-      icon: "house", 
-      description: "hei",
+      icon: "home_and_garden", 
+      description: "Stort inngjerdet område med flere soner.Løpetid er ikke et problem.",
     },
     {
       id: 0,
-      text: "Hjemmekennel", 
-      icon: "house", 
-      description: "hei",
+      text: "kurs", 
+      icon: "sound_detection_dog_barking", 
+      description: "Vi holder kurs, både i RettVest og for andre klubber og hundeskoler.",
     },
     {
       id: 0,
-      text: "Hjemmekennel", 
-      icon: "house", 
-      description: "hei",
+      text: "För", 
+      icon: "pet_supplies", 
+      description: "Både Raw og Norwegian Polar hundemat til utkjøring. ",
     },
 
   ];
