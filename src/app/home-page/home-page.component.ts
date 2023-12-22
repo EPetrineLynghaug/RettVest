@@ -1,10 +1,14 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { ImageGalleryComponent } from '../image-gallery/image-gallery.component';
 
 @Component({
   selector: 'app-home-page',
   standalone: true,
-  imports: [CommonModule],
+  imports: [
+    CommonModule,
+    ImageGalleryComponent,
+  ],
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.scss'
 })
@@ -20,7 +24,7 @@ export class HomePageComponent implements OnInit {
       id: 0,
       text: "Hjemmekennel", 
       icon: "home_and_garden", 
-      description: "Stort inngjerdet område med flere soner.Løpetid er ikke et problem.",
+      description: "Stort inngjerdet område med flere soner. Løpetid er ikke et problem.",
     },
     {
       id: 0,
@@ -32,7 +36,7 @@ export class HomePageComponent implements OnInit {
       id: 0,
       text: "För", 
       icon: "pet_supplies", 
-      description: "Både Raw og Norwegian Polar hundemat til utkjøring. ",
+      description: "Både Raw og Norwegian Polar hundemat til utkjøring.",
     },
 
   ];
@@ -42,9 +46,9 @@ export class HomePageComponent implements OnInit {
 
 
 interface ServiceItem{
-  id: Number;
-  text: String;
-  icon: String;
+  id: number;
+  text: string;
+  icon: string;
   description: string;
 
 }
