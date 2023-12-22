@@ -34,16 +34,23 @@
       items-center
       xl:flex-row
       xl:justify-around
-      xl:justify-items-stretch
+      xl:items-stretch
   ">
     <div 
       *ngFor="let service of serviceItems"
-      class="xl:px-4 xl:flex-1"
-    >
+      class="
+        xl:px-4
+        xl:flex-1
+        xl:flex-col
+        w-full
+        max-w-3xl
+    ">
       <div
         class="
+          xl:min-h-72
+          xl:flex
+          xl:flex-col
           w-full
-          max-w-xl
           flex
           flex-col
           items-center
@@ -53,12 +60,9 @@
           shadow-md
           rounded-md
           my-6
-        "
-      >
-        <span class="material-symbols-outlined text-primary text-8xl">{{ service.icon }}</span>
-        <h3 class="text-xl font-bold capitalize">{{ service.text }}</h3>
-        <!-- <div class="divider divider-primary">
-        </div> -->
+      ">
+        <span class="material-symbols-outlined text-primary text-8xl my-5">{{ service.icon }}</span>
+        <h3 class="text-xl font-bold capitalize mb-2">{{ service.text }}</h3>
         <p class="text-center text-lg">
           {{ service.description }}
         </p>
