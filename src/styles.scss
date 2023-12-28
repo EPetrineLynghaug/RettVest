@@ -30,7 +30,21 @@ section {
     padding: 12px;
 }
 
-// .slider-arrow svg {
-//   z-index: 99999999;
-//   fill: #00BFFF;
-// }
+.slider-arrow {
+  width: 48px;
+  height: 48px;
+  padding: 12px;
+  background: #66CC8A;
+  border-radius: 100%;
+  opacity: 1;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, .12),
+              0 2px 4px rgba(0, 0, 0, .24);
+    transition-duration: 0.2;
+}
+.slider-arrow:hover {
+    opacity: 0.8;
+    box-shadow: 0 0 0;
+}
+.slider-arrow svg {
+  fill: #FFFFFF;
+}

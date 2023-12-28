@@ -15,8 +15,10 @@
         "
       >
 
+      <picture>
+        <source srcset="{{ '/assets/img/webp/' + image.src + '.webp' }}" type="image/webp">
         <img
-          src="{{ image.src }}"
+          src="{{ '/assets/img/jpg/' + image.src + '.jpg' }}"
           class="
             w-full
             h-full
@@ -26,6 +28,7 @@
           "
           alt="{{ image.alt }}"
         />
+      </picture>
 
       </li>
 
