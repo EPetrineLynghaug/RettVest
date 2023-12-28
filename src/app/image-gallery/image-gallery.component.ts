@@ -1,10 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import Splide from '@splidejs/splide';
 
 @Component({
   selector: 'app-image-gallery',
   standalone: true,
-  imports: [CommonModule],
+  imports: [
+    CommonModule,
+  ],
   templateUrl: './image-gallery.component.html',
   styleUrl: './image-gallery.component.scss'
 })
@@ -13,25 +16,29 @@ export class ImageGalleryComponent implements OnInit {
   images: Image[] = [
     {
       id: 0,
-      src: 'https://daisyui.com/images/stock/photo-1625726411847-8cbb60cc71e6.jpg',
+      src: '/assets/img/jpg/IMG_2582.jpg',
     },
     {
       id: 1,
-      src: 'https://daisyui.com/images/stock/photo-1609621838510-5ad474b7d25d.jpg',
+      src: '/assets/img/jpg/IMG_3111.jpg',
     },
     {
       id: 2,
-      src: 'https://daisyui.com/images/stock/photo-1414694762283-acccc27bca85.jpg',
+      src: '/assets/img/jpg/IMG_3267.jpg',
     },
     {
       id: 3,
-      src: 'https://daisyui.com/images/stock/photo-1665553365602-b2fb8e5d1707.jpg',
+      src: '/assets/img/jpg/IMG_4147.jpg',
     },
   ];
 
   constructor() {}
 
-  ngOnInit(): void { }
+  ngOnInit(): void {}
+
+  currentSlide(imageId: number): string {
+    return `slide${imageId}`;
+  }
 
   prevSlideButton(imageId: number): string {
     if (imageId === 0) {
@@ -41,10 +48,6 @@ export class ImageGalleryComponent implements OnInit {
 
     const id = imageId - 1;
     return `#slide${ id }`;
-  }
-
-  currentSlide(imageId: number): string {
-    return `slide${imageId}`;
   }
 
   nextSlideButton(imageId: number): string {
