@@ -1,5 +1,9 @@
 .hero {
-    background-image: url('/assets/img/front-page-hero.jpg');
+    // Alternative image formats
+    background-image: -webkit-image-set(
+        url('/assets/img/front-page-hero.webp'),
+        url('/assets/img/front-page-hero.jpg'),
+    );
     background-size: cover;
     background-position: center 35%;
     background-repeat: no-repeat;

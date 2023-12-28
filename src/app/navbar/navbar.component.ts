@@ -26,7 +26,7 @@ export class NavbarComponent implements OnInit {
     {
        id: 1,
        text: "Hjemmekennel & pensjonat",
-       href: "/hjemmekennel",
+       href: "/kennel",
     },
     {
        id: 2,
