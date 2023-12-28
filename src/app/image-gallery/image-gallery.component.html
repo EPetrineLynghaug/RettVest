@@ -17,14 +17,42 @@
 
 </div> -->
 
-<section class="splide" aria-label="Splide Basic HTML Example">
-  <div class="splide__track">
-		<ul class="splide__list">
+<!-- https://tailwindcss.com/ -->
+<div
+  id="mainGallery"
+  class="splide p-0"
+  aria-label="Splide Basic HTML Example"
+>
+  <div class="splide__track p-0">
+		<ul class="splide__list p-0">
 
-			<li class="splide__slide">Slide 01</li>
-			<li class="splide__slide">Slide 02</li>
-			<li class="splide__slide">Slide 03</li>
+			<li
+        *ngFor="let image of images"
+        class="
+          splide__slide
+          w-full
+        "
+      >
+
+        <div class="
+          w-full
+          border-2
+          border-red-500
+        ">
+          <p>Test {{image.id}}</p>
+          <!-- <img
+            src="{{ image.src }}"
+            class="
+              w-full
+              h-full
+              object-cover
+            "
+            alt="..."
+          /> -->
+        </div>
+
+      </li>
 
 		</ul>
   </div>
-</section>
+</div>

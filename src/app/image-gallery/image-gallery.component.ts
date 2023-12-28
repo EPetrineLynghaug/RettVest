@@ -34,31 +34,43 @@ export class ImageGalleryComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit(): void {}
-
-  currentSlide(imageId: number): string {
-    return `slide${imageId}`;
+  ngOnInit(): void {
+    // https://splidejs.com/guides/options/
+    new Splide('#mainGallery', {
+      type: 'loop',
+      perPage: 3,
+      classes: {
+        arrows: 'splide__arrows slider-arrows',
+        arrow: 'splide__arrow slider-arrow',
+        prev: 'splide__arrow--prev slider-arrow-prev',
+        next: 'splide__arrow--next slider-arrow-next',
+      },
+    }).mount();
   }
 
-  prevSlideButton(imageId: number): string {
-    if (imageId === 0) {
-      const id = this.images.length - 1;
-      return `#slide${ id }`;
-    }
+  // currentSlide(imageId: number): string {
+  //   return `slide${imageId}`;
+  // }
 
-    const id = imageId - 1;
-    return `#slide${ id }`;
-  }
+  // prevSlideButton(imageId: number): string {
+  //   if (imageId === 0) {
+  //     const id = this.images.length - 1;
+  //     return `#slide${ id }`;
+  //   }
 
-  nextSlideButton(imageId: number): string {
-    if (imageId === this.images.length - 1) {
-      const id = 0;
-      return `#slide${ id }`;
-    }
+  //   const id = imageId - 1;
+  //   return `#slide${ id }`;
+  // }
 
-    const id = imageId + 1;
-    return `#slide${ id }`;
-  }
+  // nextSlideButton(imageId: number): string {
+  //   if (imageId === this.images.length - 1) {
+  //     const id = 0;
+  //     return `#slide${ id }`;
+  //   }
+
+  //   const id = imageId + 1;
+  //   return `#slide${ id }`;
+  // }
 
 }
 

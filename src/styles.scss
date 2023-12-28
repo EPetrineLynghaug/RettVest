@@ -29,3 +29,8 @@ section {
     width: 100%;
     padding: 12px;
 }
+
+.slider-arrow svg {
+  z-index: 99999999;
+  fill: #00BFFF;
+}
