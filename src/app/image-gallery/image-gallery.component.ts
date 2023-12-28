@@ -36,16 +36,16 @@ export class ImageGalleryComponent implements OnInit {
 
   ngOnInit(): void {
     // https://splidejs.com/guides/options/
-    new Splide('#mainGallery', {
-      type: 'loop',
-      perPage: 3,
-      classes: {
-        arrows: 'splide__arrows slider-arrows',
-        arrow: 'splide__arrow slider-arrow',
-        prev: 'splide__arrow--prev slider-arrow-prev',
-        next: 'splide__arrow--next slider-arrow-next',
-      },
-    }).mount();
+    // new Splide('#mainGallery', {
+    //   type: 'loop',
+    //   perPage: 3,
+    //   classes: {
+    //     arrows: 'splide__arrows slider-arrows',
+    //     arrow: 'splide__arrow slider-arrow',
+    //     prev: 'splide__arrow--prev slider-arrow-prev',
+    //     next: 'splide__arrow--next slider-arrow-next',
+    //   },
+    // }).mount();
   }
 
   // currentSlide(imageId: number): string {

@@ -20,21 +20,26 @@ export class NavbarComponent implements OnInit {
   menuItems: MenuItem[] = [
     {
        id: 0,
+       text: "Hjem",
+       href: "/",
+    },
+    {
+       id: 1,
        text: "Hjemmekennel & pensjonat",
        href: "/hjemmekennel",
     },
     {
-       id: 1,
+       id: 2,
        text: "Om oss",
-       href: "/omoss",
-    },
-    {
-      id: 2,
-      text: "RAWFÔR",
-      href: "/rawför",
+       href: "/om-oss",
     },
     {
       id: 3,
+      text: "RAWFÔR",
+      href: "/rawfor",
+    },
+    {
+      id: 4,
       text: "Kontakt oss",
       href: "/kontakt",
     },
