@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Router, NavigationEnd } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
   imports: [
+    FormsModule,
     CommonModule,
     RouterModule,
   ],
@@ -41,13 +43,25 @@ export class NavbarComponent implements OnInit {
     {
       id: 4,
       text: "Kontakt oss",
-      href: "/kontakt",
+      href: "/kontakt-oss",
     },
   ];
 
-  constructor() {}
+  constructor(
+    private router: Router,
+  ) {}
 
   ngOnInit(): void {
+    // INFO: Listen for router events and close menu if open
+    this.router.events.subscribe((event) => {
+      if (!(event instanceof NavigationEnd)) {
+        return;
+      }
+
+      if (this.menuOpen) {
+        this.menuOpen = false;
+      }
+    });
   }
 
   toggleMenu(): void {

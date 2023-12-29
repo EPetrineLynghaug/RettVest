@@ -1,1 +1,52 @@
-<p>contact-form works!</p>
+<div class="hero min-h-screen bg-base-200">
+  <div class="hero-content flex-col lg:flex-row-reverse">
+    <div class="text-center lg:text-left">
+      <h1 class="text-5xl font-bold">Kontakt oss</h1>
+      <p class="py-6">
+        Kontakt oss for å reservere kennelplass eller kjøpe fôr. Vennligst spesifiser mengden fôr du ønsker og om du vil hente det selv eller om vi skal levere det. Vi vil svare så raskt som mulig, men det kan ta 2-3 arbeidsdager.
+        Ring oss gjerne på tlf: <a href="tel:004793487399" class="link link-primary">934 87 399</a> om du lurer på noe. 
+      </p>
+    </div>
+    <div class="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+      <form class="card-body">
+
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text">Fullt navn</span>
+          </label>
+          <input type="email" placeholder="Ola Nordmann" class="input input-bordered" required />
+        </div>
+
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text">Epost</span>
+          </label>
+          <input type="email" placeholder="eksempel@epost.no" class="input input-bordered" required />
+        </div>
+
+        <label class="form-control">
+            <div class="label">
+                <span class="label-text">Melding</span>
+            </div>
+            <textarea
+                #message
+                class="textarea textarea-bordered h-24"
+                placeholder="Din melding.."
+                (keyup)="updateMessage(message.value.length)"
+            ></textarea>
+            <div class="label justify-end">
+                <span
+                    class="label-text-alt"
+                    [class.text-red-500]="disabled"
+                >{{ messageLength + '/' + messageLimit }} Tegn</span>
+            </div>
+        </label>
+
+        <div class="form-control mt-6">
+          <button class="btn btn-primary" (click)="sendForm(message.value)" [disabled]="disabled">Send</button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>
