@@ -21,29 +21,29 @@ export class NavbarComponent implements OnInit {
   // menuItems: Array<MenuItem> = [];
   menuItems: MenuItem[] = [
     {
-       id: 0,
        text: "Hjem",
        href: "/",
+       icon: 'home',
     },
     {
-       id: 1,
        text: "Hjemmekennel & pensjonat",
        href: "/kennel",
+       icon: 'sound_detection_dog_barking',
     },
     {
-       id: 2,
+      text: "FÔR",
+      href: "/partnere",
+      icon: 'pet_supplies',
+    },
+    {
        text: "Om oss",
        href: "/om-oss",
+       icon: 'contacts_product',
     },
     {
-      id: 3,
-      text: "RAWFÔR",
-      href: "/rawfor",
-    },
-    {
-      id: 4,
       text: "Kontakt oss",
       href: "/kontakt-oss",
+      icon: 'mail',
     },
   ];
 
@@ -71,7 +71,6 @@ export class NavbarComponent implements OnInit {
 }
 
 interface MenuItem {
-  id: Number;
   text: String;
   href: String;
   icon?: String; // Optional

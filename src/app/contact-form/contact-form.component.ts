@@ -12,7 +12,7 @@ import { FormsModule } from '@angular/forms';
 })
 export class ContactFormComponent implements OnInit {
 
-  messageLimit: number = 10;
+  messageLimit: number = 250;
   messageLength: number = 0;
   disabled: boolean = false;
 

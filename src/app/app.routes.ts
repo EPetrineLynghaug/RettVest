@@ -34,5 +34,5 @@ export const routes: Routes = [
         path: '**',
         redirectTo: '/',
         pathMatch: 'full',
-    }
+    },
 ];
