@@ -1,7 +1,7 @@
-<p>product-page works!</p>
-<div class="hero min-h-[600px] bg-base-200">
+<div class="hero min-h-[600px]">
     <div class="hero-content text-center">
       <div class="max-w-md">
+
         <h1 class="text-3xl font-normal">
             Vi har
             <span class="font-bold">Norwegian Polar</span>
@@ -9,24 +9,53 @@
             <span class="font-bold">Rawfor</span>
             på lager
         </h1>
+
         <p class="pt-6">
             Vi leverer hjem til deg, eller du kan hente på kennelen vår.
         </p>
-        <p class="pt-1">
-            Norwegian polar kr 640,- (20kg)
-            Rawfor Lam og storfe kr 700,- (ca. 15kg)
-        </p>
+
         <a
             routerLink="/kontakt-oss"
             class="btn btn-primary mt-6"
         >
             Bestill her!
         </a>
+
       </div>
     </div>
   </div>
 
-  <div
+<div class="overflow-x-auto">
+    <table class="table">
+
+        <tbody>
+            <tr
+                *ngFor="let product of rawforProducts"
+                class="odd:bg-base-200"
+            >
+                <td>
+                    <span class="font-bold">
+                        {{ product.description }}
+                    </span>
+                    <br/>
+                    <span class="badge badge-primary badge-sm">
+                        {{ product.producer }}
+                    </span>
+                </td>
+                <td class="text-right">
+                    {{ 'KR ' + product.price + ',-' }}
+                    <br/>
+                    <span class="badge badge-secondary badge-sm">
+                        {{ product.amount }}
+                    </span>
+                </td>
+            </tr>
+        </tbody>
+        
+    </table>
+</div>
+
+  <!-- <div
     class="
         bg-base-200
         w-full
@@ -70,4 +99,4 @@
         </div>
     </a>
 
-  </div>
+  </div> -->
