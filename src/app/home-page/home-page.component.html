@@ -11,7 +11,7 @@
       <p class="mb-7 font-bold">
         Koselig hjemmekennel med fokus på trivsel og hygge.
       </p>
-      <a routerLink="/kontakt-oss" class="btn btn-primary text-base-200 uppercase shadow-sm">
+      <a routerLink="/kontakt-oss" class="btn btn-primary text-white uppercase shadow-sm">
         Gå til booking
       </a>
     </div>
@@ -45,7 +45,8 @@
         w-full
         max-w-3xl
     ">
-      <div
+      <a
+        [routerLink]="service.href"
         class="
           xl:min-h-72
           xl:flex
@@ -66,7 +67,7 @@
         <p class="text-center text-lg">
           {{ service.description }}
         </p>
-      </div>
+      </a>
     </div>
   </div>
     

@@ -14,76 +14,7 @@ import { CommonModule } from '@angular/common';
 })
 export class ProductPageComponent {
 
-  rawforProducts: Product[] = [
-    {
-      producer: 'rawfor',
-      description: 'Kylling',
-      price: 600,
-      amount: '15 Kg', 
-    },
-    {
-      producer: 'rawfor',
-      description: 'Burger kylling og storfe',
-      price: 600,
-      amount: '15 Kg', 
-    },
-    {
-      producer: 'rawfor',
-      description: 'Burger kylling og svin',
-      price: 600,
-      amount: '15 Kg', 
-    },
-    {
-      producer: 'rawfor',
-      description:'Burger, lam og storfe',
-      price: 700,
-      amount: '15 Kg', 
-    },
-    {
-      producer: 'rawfor',
-      description: 'Burger vilt',
-      price: 700,
-      amount: '15 Kg', 
-    },
-    {
-      producer: 'rawfor',
-      description: 'Burger valpefor',
-      price: 700,
-      amount: '15 Kg', 
-    },
-  ];
-
-  polarProducts: Product[] = [
-    {
-      producer: 'norwegian polar',
-      description: 'Frosset',
-      price: 640,
-      amount: '20 Kg', 
-    },
-    {
-      producer: 'norwegian polar',
-      description: 'Frosset',
-      price: 1260,
-      amount: '40 Kg', 
-    },
-    {
-      producer: 'norwegian polar',
-      description: 'Frosset',
-      price: 1830,
-      amount: '60 Kg', 
-    },
-    {
-      producer: 'norwegian polar',
-      description: 'Frosset',
-      price: 2360,
-      amount: '80 Kg', 
-    },
-    {
-      producer: 'norwegian polar',
-      description: 'Frosset',
-      price: 2850,
-      amount: '100 Kg', 
-    },
+  rettvestProducts: Product[] = [
     {
       producer: 'RettVest',
       description: 'Griseører',
@@ -119,6 +50,78 @@ export class ProductPageComponent {
       description: 'Tørrfisk',
       price: 159,
       amount: '500 g', 
+    },
+  ];
+
+  rawforProducts: Product[] = [
+    {
+      producer: 'Rawfor',
+      description: 'Kylling',
+      price: 600,
+      amount: '15 Kg', 
+    },
+    {
+      producer: 'Rawfor',
+      description: 'Burger kylling og storfe',
+      price: 600,
+      amount: '15 Kg', 
+    },
+    {
+      producer: 'Rawfor',
+      description: 'Burger kylling og svin',
+      price: 600,
+      amount: '15 Kg', 
+    },
+    {
+      producer: 'Rawfor',
+      description:'Burger, lam og storfe',
+      price: 700,
+      amount: '15 Kg', 
+    },
+    {
+      producer: 'Rawfor',
+      description: 'Burger vilt',
+      price: 700,
+      amount: '15 Kg', 
+    },
+    {
+      producer: 'Rawfor',
+      description: 'Burger valpefor',
+      price: 700,
+      amount: '15 Kg', 
+    },
+  ];
+
+  polarProducts: Product[] = [
+    {
+      producer: 'Norwegian Polar',
+      description: 'Frosset',
+      price: 640,
+      amount: '20 Kg', 
+    },
+    {
+      producer: 'Norwegian Polar',
+      description: 'Frosset',
+      price: 1260,
+      amount: '40 Kg', 
+    },
+    {
+      producer: 'Norwegian Polar',
+      description: 'Frosset',
+      price: 1830,
+      amount: '60 Kg', 
+    },
+    {
+      producer: 'Norwegian Polar',
+      description: 'Frosset',
+      price: 2360,
+      amount: '80 Kg', 
+    },
+    {
+      producer: 'Norwegian Polar',
+      description: 'Frosset',
+      price: 2850,
+      amount: '100 Kg', 
     },
   ];
 

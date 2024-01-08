@@ -1,6 +1,9 @@
-<header class="z-50 navbar bg-base-200 fixed border-b-2 border-primary">
+<header class="z-50 navbar bg-base-200 fixed top-0 left-0 border-b-2 border-primary">
   <div class="navbar-start">
-    <a class="text-xl flex flex-col cursor-pointer">
+    <a
+      routerLink="/"
+      class="text-xl flex flex-col cursor-pointer"
+    >
       <span class="font-bold">RettVest</span>
       <small class="text-sm text-primary-content">
         Hjemmekennel & Pensjonat
@@ -24,7 +27,7 @@
       <input type="checkbox" class="drawer-toggle" />
       <div class="drawer-content">
         <!-- Page content here -->
-        <label class="btn btn-square btn-primary text-base-200 swap swap-rotate">
+        <label class="btn btn-square btn-primary text-white swap swap-rotate">
           
           <!-- this hidden checkbox controls the state -->
           <input type="checkbox" [(ngModel)]="menuOpen" />

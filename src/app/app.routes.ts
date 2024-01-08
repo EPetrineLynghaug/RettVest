@@ -26,7 +26,7 @@ export const routes: Routes = [
         component: ContactFormComponent,
     },
     {
-        path: 'partnere',
+        path: 'produkter',
         component: ProductPageComponent,
     },
 

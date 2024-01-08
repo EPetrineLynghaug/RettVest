@@ -8,7 +8,12 @@
       </p>
     </div>
     <div class="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-      <form class="card-body">
+      <form
+        class="card-body"
+        name="contact"
+        method="POST"
+        data-netlify="true"
+      >
 
         <div class="form-control">
           <label class="label">
@@ -43,7 +48,13 @@
         </label>
 
         <div class="form-control mt-6">
-          <button class="btn btn-primary" (click)="sendForm(message.value)" [disabled]="disabled">Send</button>
+          <button
+            type="sumit"
+            class="btn btn-primary text-white"
+            [disabled]="disabled"
+          >
+            Send
+          </button>
         </div>
 
       </form>

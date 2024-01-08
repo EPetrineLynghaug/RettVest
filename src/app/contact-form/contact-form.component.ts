@@ -28,8 +28,4 @@ export class ContactFormComponent implements OnInit {
       : this.disabled = false;
   }
 
-  sendForm(message: string): void {
-    console.log(message);
-  }
-
 }

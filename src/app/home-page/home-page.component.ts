@@ -23,24 +23,23 @@ export class HomePageComponent implements OnInit {
 
   serviceItems: ServiceItem[] = [
     {
-      id: 0,
       text: "Hjemmekennel", 
       icon: "home_and_garden", 
       description: "Stort inngjerdet område med flere soner. Løpetid er ikke et problem.",
+      href: '/kennel',
     },
     {
-      id: 0,
-      text: "kurs", 
-      icon: "sound_detection_dog_barking", 
-      description: "Vi holder kurs, både i RettVest og for andre klubber og hundeskoler.",
-    },
-    {
-      id: 0,
       text: "För", 
       icon: "pet_supplies", 
       description: "Både Raw og Norwegian Polar hundemat til utkjøring.",
+      href: '/produkter',
     },
-
+    {
+      text: "Om oss", 
+      icon: "contacts_product", 
+      description: "Både Hilde og Karstein har erfaring med ulike raser og er utdannede hundeinstruktører",
+      href: '/om-oss',
+    },
   ];
 
 }
@@ -48,9 +47,8 @@ export class HomePageComponent implements OnInit {
 
 
 interface ServiceItem{
-  id: number;
   text: string;
   icon: string;
   description: string;
-
+  href: string;
 }

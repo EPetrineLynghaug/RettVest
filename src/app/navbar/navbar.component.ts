@@ -32,7 +32,7 @@ export class NavbarComponent implements OnInit {
     },
     {
       text: "FÔR",
-      href: "/partnere",
+      href: "/produkter",
       icon: 'pet_supplies',
     },
     {
