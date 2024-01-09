@@ -33,11 +33,11 @@
           <label class="label">
             <span class="label-text">Telefon</span>
           </label>
-          <div class="join">
-            <div class="join-item flex items-center justify-center w-12 border border-base-300 bg-neutral text-neutral-content">
+          <div class="join w-full">
+            <div class="join-item flex items-center justify-center w-12 border border-base-300 bg-primary bg-opacity-50">
               +47
             </div>
-            <input type="tel" placeholder="12345678" class="input input-bordered join-item border-l-0" required />
+            <input type="tel" placeholder="12345678" class="flex-1 input input-bordered join-item border-l-0" required />
           </div>
         </div>
 
@@ -47,7 +47,7 @@
             </div>
             <textarea
                 #message
-                class="textarea textarea-bordered h-24"
+                class="textarea textarea-bordered h-24 min-h-24 max-h-48"
                 placeholder="Din melding.."
                 (keyup)="updateMessage(message.value.length)"
             ></textarea>
