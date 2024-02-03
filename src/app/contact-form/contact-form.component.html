@@ -9,7 +9,6 @@
     </div>
     <div class="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
       <form
-        *ngIf="!formSubmitted"
         class="contact-form card-body"
         name="contact"
         method="POST"
@@ -62,8 +61,8 @@
 
         <div class="form-control mt-6">
           <button
+            type="submit"
             class="btn btn-primary text-white"
-            (click)="handleSubmit(name.value, email.value, phone.value, message.value)"
             [disabled]="disabled"
           >
             Send

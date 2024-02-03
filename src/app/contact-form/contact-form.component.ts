@@ -5,10 +5,7 @@ import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-contact-form',
   standalone: true,
-  imports: [
-    FormsModule,
-    CommonModule,
-  ],
+  imports: [FormsModule, CommonModule],
   templateUrl: './contact-form.component.html',
   styleUrl: './contact-form.component.scss',
 })
@@ -20,6 +17,12 @@ export class ContactFormComponent {
 
   constructor() {}
 
+  ngAfterViewInit(): void {
+    let form: any = document.querySelector('form');
+
+    form.addEventListener('submit', this.handleSubmit);
+  }
+
   updateMessage(length: number): void {
     this.messageLength = length;
 
@@ -28,25 +31,21 @@ export class ContactFormComponent {
       : (this.disabled = false);
   }
 
-  handleSubmit(name: string, email: string, phone: string, message: string): void {
-    let form = {
-      name,
-      email,
-      phone,
-      message
-    };
+  handleSubmit(event: any) {
+    event.preventDefault();
+
+    const myForm: any = event.target;
+    const formData: any = new FormData(myForm);
 
     fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams(form).toString(),
+      body: new URLSearchParams(formData).toString(),
     })
-      .then(() => {
-        console.log('Form successfully submitted');
-        this.formSubmitted = true;
+      .then((res) => {
+        console.log(res);
+        alert('Skjema sent!');
       })
-      .catch((error) => {
-        alert(error);
-      });
+      .catch((err) => alert(err));
   }
 }
