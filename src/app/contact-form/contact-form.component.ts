@@ -1,25 +1,24 @@
-import { Component, AfterViewInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-contact-form',
   standalone: true,
-  imports: [FormsModule],
+  imports: [
+    FormsModule,
+    CommonModule,
+  ],
   templateUrl: './contact-form.component.html',
   styleUrl: './contact-form.component.scss',
 })
-export class ContactFormComponent implements AfterViewInit {
+export class ContactFormComponent {
   messageLimit: number = 250;
   messageLength: number = 0;
   disabled: boolean = false;
   formSubmitted: boolean = false;
 
   constructor() {}
-
-  ngAfterViewInit(): void {
-    let form: HTMLFormElement = document.querySelector('.contact-form') as HTMLFormElement;
-    form.addEventListener('submit', this.handleSubmit);
-  }
 
   updateMessage(length: number): void {
     this.messageLength = length;
@@ -29,16 +28,18 @@ export class ContactFormComponent implements AfterViewInit {
       : (this.disabled = false);
   }
 
-  handleSubmit(event: any): void {
-    event.preventDefault();
-
-    const myForm: any = event.target;
-    const formData: any = new FormData(myForm);
+  handleSubmit(name: string, email: string, phone: string, message: string): void {
+    let form = {
+      name,
+      email,
+      phone,
+      message
+    };
 
     fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams(formData).toString(),
+      body: new URLSearchParams(form).toString(),
     })
       .then(() => {
         console.log('Form successfully submitted');
@@ -47,5 +48,5 @@ export class ContactFormComponent implements AfterViewInit {
       .catch((error) => {
         alert(error);
       });
-  };
+  }
 }

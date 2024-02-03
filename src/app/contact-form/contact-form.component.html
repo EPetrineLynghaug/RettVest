@@ -20,14 +20,14 @@
           <label class="label">
             <span class="label-text">Fullt navn</span>
           </label>
-          <input type="email" placeholder="Ola Nordmann" class="input input-bordered" required />
+          <input #name type="text" placeholder="Ola Nordmann" class="input input-bordered" required />
         </div>
 
         <div class="form-control">
           <label class="label">
             <span class="label-text">Epost</span>
           </label>
-          <input type="email" placeholder="eksempel@epost.no" class="input input-bordered" required />
+          <input #email type="email" placeholder="eksempel@epost.no" class="input input-bordered" required />
         </div>
 
         <div class="form-control">
@@ -38,7 +38,7 @@
             <div class="join-item flex items-center justify-center w-12 border border-base-300 bg-primary bg-opacity-50">
               +47
             </div>
-            <input type="tel" placeholder="12345678" class="flex-1 input input-bordered join-item border-l-0" required />
+            <input #phone type="tel" placeholder="12345678" class="flex-1 input input-bordered join-item border-l-0" required />
           </div>
         </div>
 
@@ -62,8 +62,8 @@
 
         <div class="form-control mt-6">
           <button
-            type="submit"
             class="btn btn-primary text-white"
+            (click)="handleSubmit(name.value, email.value, phone.value, message.value)"
             [disabled]="disabled"
           >
             Send
