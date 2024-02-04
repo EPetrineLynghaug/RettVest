@@ -1,3 +1,14 @@
+<!-- TODO: Fix form and remove alert -->
+<div role="alert" class="alert alert-warning shadow-lg rounded-none">
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-neutral shrink-0 w-6 h-6">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+  </svg>
+  <div>
+    <h3 class="font-bold">Kontakt skjema kommer snart!</h3>
+    <div class="text-sm">Mail funksjonen er under utvikling.</div>
+  </div>
+</div>
+
 <div class="hero min-h-screen">
   <div class="hero-content flex-col lg:flex-row-reverse">
     <div class="text-center lg:text-left">
@@ -10,23 +21,21 @@
     <div class="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
       <form
         class="contact-form card-body"
-        name="contact"
-        method="POST"
-        data-netlify="true"
+        [formGroup]="contactForm"
       >
 
         <div class="form-control">
           <label class="label">
             <span class="label-text">Fullt navn</span>
           </label>
-          <input #name type="text" placeholder="Ola Nordmann" class="input input-bordered" required />
+          <input formControlName="name" type="text" placeholder="Ola Nordmann" class="input input-bordered" required />
         </div>
 
         <div class="form-control">
           <label class="label">
             <span class="label-text">Epost</span>
           </label>
-          <input #email type="email" placeholder="eksempel@epost.no" class="input input-bordered" required />
+          <input formControlName="email" type="email" placeholder="eksempel@epost.no" class="input input-bordered" required />
         </div>
 
         <div class="form-control">
@@ -37,7 +46,7 @@
             <div class="join-item flex items-center justify-center w-12 border border-base-300 bg-primary bg-opacity-50">
               +47
             </div>
-            <input #phone type="tel" placeholder="12345678" class="flex-1 input input-bordered join-item border-l-0" required />
+            <input formControlName="phone" type="tel" placeholder="12345678" class="flex-1 input input-bordered join-item border-l-0" required />
           </div>
         </div>
 
@@ -46,6 +55,7 @@
                 <span class="label-text">Melding</span>
             </div>
             <textarea
+                formControlName="message"
                 #message
                 class="textarea textarea-bordered h-24 min-h-24 max-h-48"
                 placeholder="Din melding.."
@@ -61,9 +71,9 @@
 
         <div class="form-control mt-6">
           <button
-            type="submit"
             class="btn btn-primary text-white"
-            [disabled]="disabled"
+            (click)="sendForm()"
+            [disabled]="true"
           >
             Send
           </button>

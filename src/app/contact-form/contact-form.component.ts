@@ -1,11 +1,17 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder } from '@angular/forms';
+import { Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-contact-form',
   standalone: true,
-  imports: [FormsModule, CommonModule],
+  imports: [
+    FormsModule,
+    CommonModule,
+    ReactiveFormsModule
+  ],
   templateUrl: './contact-form.component.html',
   styleUrl: './contact-form.component.scss',
 })
@@ -15,13 +21,30 @@ export class ContactFormComponent {
   disabled: boolean = false;
   formSubmitted: boolean = false;
 
-  constructor() {}
+  contactForm = this.formBuilder.group({
+    name: ['', Validators.required],
+    email: [
+      '',
+      [Validators.required, Validators.email],
+    ],
+    phone: [
+      '',
+      [
+        Validators.required,
+        Validators.minLength(8),
+        Validators.maxLength(8)
+      ],
+    ],
+    message: [
+      '',
+      [
+        Validators.required,
+        Validators.maxLength(this.messageLimit)
+      ]
+    ],
+  });
 
-  ngAfterViewInit(): void {
-    let form: any = document.querySelector('form');
-
-    form.addEventListener('submit', this.handleSubmit);
-  }
+  constructor(private formBuilder: FormBuilder) {}
 
   updateMessage(length: number): void {
     this.messageLength = length;
@@ -31,21 +54,8 @@ export class ContactFormComponent {
       : (this.disabled = false);
   }
 
-  handleSubmit(event: any) {
-    event.preventDefault();
-
-    const myForm: any = event.target;
-    const formData: any = new FormData(myForm);
-
-    fetch('/', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams(formData).toString(),
-    })
-      .then((res) => {
-        console.log(res);
-        alert('Skjema sent!');
-      })
-      .catch((err) => alert(err));
+  sendForm() {
+    console.log(this.contactForm.value.toString());
   }
+
 }
