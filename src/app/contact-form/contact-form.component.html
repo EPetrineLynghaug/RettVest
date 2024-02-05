@@ -18,68 +18,8 @@
         Ring oss gjerne på tlf: <a href="tel:004793487399" class="link link-primary">934 87 399</a> om du lurer på noe.
       </p>
     </div>
-    <div class="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-      <form
-        class="contact-form card-body"
-        [formGroup]="contactForm"
-      >
-
-        <div class="form-control">
-          <label class="label">
-            <span class="label-text">Fullt navn</span>
-          </label>
-          <input formControlName="name" type="text" placeholder="Ola Nordmann" class="input input-bordered" required />
-        </div>
-
-        <div class="form-control">
-          <label class="label">
-            <span class="label-text">Epost</span>
-          </label>
-          <input formControlName="email" type="email" placeholder="eksempel@epost.no" class="input input-bordered" required />
-        </div>
-
-        <div class="form-control">
-          <label class="label">
-            <span class="label-text">Telefon</span>
-          </label>
-          <div class="join w-full">
-            <div class="join-item flex items-center justify-center w-12 border border-base-300 bg-primary bg-opacity-50">
-              +47
-            </div>
-            <input formControlName="phone" type="tel" placeholder="12345678" class="flex-1 input input-bordered join-item border-l-0" required />
-          </div>
-        </div>
-
-        <label class="form-control">
-            <div class="label">
-                <span class="label-text">Melding</span>
-            </div>
-            <textarea
-                formControlName="message"
-                #message
-                class="textarea textarea-bordered h-24 min-h-24 max-h-48"
-                placeholder="Din melding.."
-                (keyup)="updateMessage(message.value.length)"
-            ></textarea>
-            <div class="label justify-end">
-                <span
-                    class="label-text-alt"
-                    [class.text-red-500]="disabled"
-                >{{ messageLength + '/' + messageLimit }} Tegn</span>
-            </div>
-        </label>
-
-        <div class="form-control mt-6">
-          <button
-            class="btn btn-primary text-white"
-            (click)="sendForm()"
-            [disabled]="true"
-          >
-            Send
-          </button>
-        </div>
-
-      </form>
+    <div class="card shrink-0 w-full max-w-md p-4 shadow-2xl bg-base-100">
+      <div id="hubspotForm"></div>
     </div>
   </div>
 </div>
