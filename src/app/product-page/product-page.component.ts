@@ -96,31 +96,31 @@ export class ProductPageComponent {
     {
       producer: 'Norwegian Polar',
       description: 'Frosset',
-      price: 640,
+      price: 690,
       amount: '20 Kg',
     },
     {
       producer: 'Norwegian Polar',
       description: 'Frosset',
-      price: 1260,
+      price: 1360,
       amount: '40 Kg',
     },
     {
       producer: 'Norwegian Polar',
       description: 'Frosset',
-      price: 1830,
+      price: 2010,
       amount: '60 Kg',
     },
     {
       producer: 'Norwegian Polar',
       description: 'Frosset',
-      price: 2360,
+      price: 2640,
       amount: '80 Kg',
     },
     {
       producer: 'Norwegian Polar',
       description: 'Frosset',
-      price: 2850,
+      price: 3250,
       amount: '100 Kg',
     },
   ];
