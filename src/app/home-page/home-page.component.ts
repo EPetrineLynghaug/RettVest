@@ -16,27 +16,27 @@ import { RouterModule } from '@angular/router';
 })
 export class HomePageComponent implements OnInit {
 
-  constructor() {}
+  constructor() { }
 
   ngOnInit(): void {
   }
 
   serviceItems: ServiceItem[] = [
     {
-      text: "Hjemmekennel", 
-      icon: "home_and_garden", 
+      text: "Hjemmekennel",
+      icon: "home_and_garden",
       description: "Stort inngjerdet område med flere soner. Løpetid er ikke et problem.",
       href: '/kennel',
     },
     {
-      text: "För", 
-      icon: "pet_supplies", 
-      description: "Både Raw og Norwegian Polar hundemat til utkjøring.",
+      text: "För",
+      icon: "pet_supplies",
+      description: "Norwegian Polar hundemat til utkjøring.",
       href: '/produkter',
     },
     {
-      text: "Om oss", 
-      icon: "contacts_product", 
+      text: "Om oss",
+      icon: "contacts_product",
       description: "Både Hilde og Karstein har erfaring med ulike raser og er utdannede hundeinstruktører",
       href: '/om-oss',
     },
@@ -46,7 +46,7 @@ export class HomePageComponent implements OnInit {
 
 
 
-interface ServiceItem{
+interface ServiceItem {
   text: string;
   icon: string;
   description: string;
