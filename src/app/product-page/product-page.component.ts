@@ -53,45 +53,6 @@ export class ProductPageComponent {
     },
   ];
 
-  rawforProducts: Product[] = [
-    {
-      producer: 'Rawfor',
-      description: 'Kylling',
-      price: 600,
-      amount: '60 Karbonader',
-    },
-    {
-      producer: 'Rawfor',
-      description: 'Burger kylling og storfe',
-      price: 600,
-      amount: '60 Karbonader',
-    },
-    {
-      producer: 'Rawfor',
-      description: 'Burger kylling og svin',
-      price: 600,
-      amount: '60 Karbonader',
-    },
-    {
-      producer: 'Rawfor',
-      description:'Burger, lam og storfe',
-      price: 700,
-      amount: '60 Karbonader',
-    },
-    {
-      producer: 'Rawfor',
-      description: 'Burger vilt',
-      price: 700,
-      amount: '60 Karbonader',
-    },
-    {
-      producer: 'Rawfor',
-      description: 'Burger valpefor',
-      price: 700,
-      amount: '60 Karbonader',
-    },
-  ];
-
   polarProducts: Product[] = [
     {
       producer: 'Norwegian Polar',
