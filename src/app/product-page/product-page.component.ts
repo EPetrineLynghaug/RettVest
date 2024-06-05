@@ -48,7 +48,7 @@ export class ProductPageComponent {
     {
       producer: 'RettVest',
       description: 'Tørrfisk',
-      price: 199,
+      price: 159,
       amount: '500 g',
     },
   ];
