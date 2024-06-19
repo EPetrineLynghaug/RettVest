@@ -42,7 +42,7 @@ export class ProductPageComponent {
     {
       producer: 'RettVest',
       description: 'Okseøre med muskel',
-      price: 100,
+      price: 129,
       amount: '5 Stk',
     },
     {
