@@ -22,11 +22,23 @@
   <meta name="msapplication-TileColor" content="#ffffff">
   <meta name="msapplication-config" content="/assets/favicon/browserconfig.xml">
   <meta name="theme-color" content="#66CC8A">
-  <script type="text/javascript"
-  charset="UTF-8"
-  src="https://js.hsforms.net/forms/v2.js"></script>
 </head>
-<body data-theme="emerald">
+<body data-theme="rettvest">
+  <form name="kontakt" method="POST" action="/takk-for-henvendelsen" data-netlify="true" netlify-honeypot="bot-field" hidden>
+    <input type="hidden" name="form-name" value="kontakt">
+    <input name="bot-field">
+    <input type="text" name="navn">
+    <input type="email" name="epost">
+    <input type="tel" name="telefon">
+    <select name="henvendelse_type">
+      <option value="Hjemmekennel">Hjemmekennel</option>
+      <option value="Omplassering">Omplassering</option>
+      <option value="Annet">Annet</option>
+    </select>
+    <input type="text" name="hundens_navn">
+    <input type="text" name="onsket_periode">
+    <textarea name="melding"></textarea>
+  </form>
   <app-root></app-root>
 </body>
 </html>

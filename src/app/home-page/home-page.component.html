@@ -1,83 +1,111 @@
-<div class="hero min-h-screen">
-  <div class="hero-overlay bg-opacity-70"></div>
-  <div class="hero-content text-center text-neutral-content">
-    <div class="max-w-md">
-      <h1 class="mb-5 text-5xl font-bold flex flex-col">
+<div class="hero home-hero h-[60svh] min-h-[480px] md:h-[70svh] md:min-h-[620px] lg:h-auto lg:min-h-screen">
+  <div class="hero-overlay home-hero-overlay"></div>
+  <div class="hero-content w-full max-w-none translate-y-20 justify-start px-5 text-left text-neutral-content md:translate-y-10 md:px-10 lg:translate-y-12 lg:px-12 2xl:px-20">
+    <div class="max-w-[20rem] md:max-w-[21rem]">
+      <h1 class="mb-4 flex flex-col text-4xl font-bold md:mb-5 md:text-5xl">
         RettVest
-        <small class="text-lg text-primary">
+        <small class="text-base text-primary md:text-lg">
           Hjemmekennel & Pensjonat
         </small>
       </h1>
-      <p class="mb-7 font-bold">
-        Koselig hjemmekennel med fokus på trivsel og hygge.
+      <p class="mb-7 hidden text-base font-semibold leading-relaxed md:block md:text-lg">
+        <span class="block">
+          Trygt og koselig hundepass i hjemlige omgivelser, med ro, gode rutiner og aktivitet tilpasset hunden din.
+        </span>
+        <span class="mt-3 block">
+          Vi hjelper også med trygg omplassering når en hund trenger et nytt hjem.
+        </span>
+      </p>
+      <p class="mb-6 max-w-[16.5rem] text-base font-semibold leading-relaxed md:hidden">
+        Trygt hundepass i hjemlige omgivelser, med ro og gode rutiner.
+        Vi hjelper også med trygg omplassering.
       </p>
       <a routerLink="/kontakt-oss" class="btn btn-primary text-white uppercase shadow-sm">
-        Gå til booking
+        Kontakt oss
       </a>
     </div>
   </div>
 </div>
 
-<section>
+<section class="bg-base-100 py-14 md:py-16 lg:py-24">
 
-  <div class="mt-20 mb-10 divider divider-primary">
-    <h2 class="text-2xl font-bold uppercase">
-      Våre tjenester
-    </h2>
-  </div>
+  <div class="mx-auto grid max-w-5xl gap-8 px-5 md:grid-cols-[1.12fr_0.88fr] md:items-center lg:gap-10 lg:px-8">
+    <div>
+      <h2 class="max-w-2xl text-3xl font-bold leading-tight text-neutral md:text-[2.35rem]">
+        Trygt hundepass i rolige omgivelser
+      </h2>
 
-  <div
-    class="
-      w-full
-      flex
-      flex-col
-      items-center
-      xl:flex-row
-      xl:justify-around
-      xl:items-stretch
-  ">
-    <div 
-      *ngFor="let service of serviceItems"
-      class="
-        xl:px-4
-        xl:flex-1
-        xl:flex-col
-        w-full
-        max-w-3xl
-    ">
-      <a
-        [routerLink]="service.href"
-        class="
-          xl:min-h-72
-          xl:flex
-          xl:flex-col
-          w-full
-          flex
-          flex-col
-          items-center
-          py-8
-          px-4
-          bg-base-200
-          shadow-md
-          rounded-md
-          my-6
-      ">
-        <span class="material-symbols-outlined text-primary text-8xl my-5">{{ service.icon }}</span>
-        <h3 class="text-xl font-bold capitalize mb-2">{{ service.text }}</h3>
-        <p class="text-center text-lg">
-          {{ service.description }}
-        </p>
-      </a>
+      <p class="mt-4 max-w-xl text-lg leading-8 text-base-content/70">
+        Hos RettVest får hunden din et hjemlig opphold med ro, faste rutiner og tett oppfølging.
+        Vi tar oss tid til å bli kjent med hver enkelt hund, slik at oppholdet kan tilpasses hundens behov, vaner og personlighet.
+      </p>
     </div>
+
+    <aside class="rounded-md bg-[#f4f7ef] p-6 shadow-[0_12px_34px_rgba(36,53,47,0.10)] md:max-w-md lg:p-7">
+      <h3 class="text-xl font-bold leading-tight text-neutral">
+        Tilbakemeldinger på Facebook
+      </h3>
+
+      <p class="mt-4 text-base leading-relaxed text-base-content/70">
+        Se erfaringer fra hundeeiere og få et ærlig innblikk i hverdagen hos RettVest.
+      </p>
+
+      <div class="mt-6">
+        <a
+          href="https://www.facebook.com/p/RettVest-Hjemmekennel-og-Pensjonat-100083000693649/?locale=nb_NO"
+          target="_blank"
+          rel="noopener"
+          class="btn btn-primary text-white"
+        >
+          Se Facebook-siden
+        </a>
+      </div>
+    </aside>
   </div>
-    
+
 </section>
 
-<section>
+<section class="bg-base-200/70 py-12 md:py-16 lg:py-20">
+  <div class="mx-auto max-w-5xl px-5 lg:px-8">
+    <div class="max-w-3xl">
+      <h2 class="text-3xl font-bold leading-tight text-neutral md:text-[2.1rem]">
+        Trygghet under hele oppholdet
+      </h2>
+      <p class="mt-4 text-lg leading-8 text-base-content/70">
+        Vi legger vekt på faste rutiner, rolige omgivelser og god oversikt gjennom hele oppholdet.
+        Før levering ønsker vi informasjon om hundens helse, vaner, fôr og eventuelle behov, slik at vi kan gi trygg og tilpasset oppfølging.
+      </p>
+    </div>
 
-  <div class="mt-20 mb-10 divider divider-primary">
-    <h2 class="text-2xl font-bold uppercase">
-      Bildegalleri
+    <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <article class="rounded-md border border-base-300 bg-base-100 p-5 shadow-[0_8px_22px_rgba(36,53,47,0.06)]">
+        <h3 class="text-base font-bold leading-snug text-neutral">Faste rutiner</h3>
+        <p class="mt-2 text-sm leading-6 text-base-content/70">Mat, stell og tilsyn følger avtalte behov.</p>
+      </article>
+
+      <article class="rounded-md border border-base-300 bg-base-100 p-5 shadow-[0_8px_22px_rgba(36,53,47,0.06)]">
+        <h3 class="text-base font-bold leading-snug text-neutral">Rolige omgivelser</h3>
+        <p class="mt-2 text-sm leading-6 text-base-content/70">Hjemlig ramme med oversikt og god ro.</p>
+      </article>
+
+      <article class="rounded-md border border-base-300 bg-base-100 p-5 shadow-[0_8px_22px_rgba(36,53,47,0.06)]">
+        <h3 class="text-base font-bold leading-snug text-neutral">Tilpasset oppfølging</h3>
+        <p class="mt-2 text-sm leading-6 text-base-content/70">Vi tar hensyn til hver hunds vaner og personlighet.</p>
+      </article>
+
+      <article class="rounded-md border border-base-300 bg-base-100 p-5 shadow-[0_8px_22px_rgba(36,53,47,0.06)]">
+        <h3 class="text-base font-bold leading-snug text-neutral">Kontakt ved behov</h3>
+        <p class="mt-2 text-sm leading-6 text-base-content/70">Eier kontaktes dersom noe bør avklares underveis.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="bg-base-100 pb-12 md:pb-16">
+
+  <div class="px-5 pb-7 pt-10 text-left md:pb-9 md:pt-12 lg:px-8">
+    <h2 class="text-2xl font-bold leading-tight text-neutral md:text-3xl">
+      Hverdagsglimt fra oss
     </h2>
   </div>
 

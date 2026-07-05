@@ -21,34 +21,4 @@ export class HomePageComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  serviceItems: ServiceItem[] = [
-    {
-      text: "Hjemmekennel",
-      icon: "home_and_garden",
-      description: "Stort inngjerdet område med flere soner. Løpetid er ikke et problem.",
-      href: '/kennel',
-    },
-    {
-      text: "För",
-      icon: "pet_supplies",
-      description: "Norwegian Polar hundemat til utkjøring.",
-      href: '/produkter',
-    },
-    {
-      text: "Om oss",
-      icon: "contacts_product",
-      description: "Både Hilde og Karstein har erfaring med ulike raser og er utdannede hundeinstruktører",
-      href: '/om-oss',
-    },
-  ];
-
-}
-
-
-
-interface ServiceItem {
-  text: string;
-  icon: string;
-  description: string;
-  href: string;
 }

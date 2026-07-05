@@ -25,6 +25,17 @@ app-root {
     font-family: 'Roboto', sans-serif;
 }
 
+body {
+    min-height: 100vh;
+    background: #fbfff9;
+}
+
+main {
+    background:
+        linear-gradient(180deg, rgba(238, 247, 240, 0.75) 0, rgba(251, 255, 249, 0) 280px),
+        #fbfff9;
+}
+
 section {
     width: 100%;
     padding: 12px;

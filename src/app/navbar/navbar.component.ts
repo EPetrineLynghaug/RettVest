@@ -26,22 +26,22 @@ export class NavbarComponent implements OnInit {
        icon: 'home',
     },
     {
-       text: "Hjemmekennel & pensjonat",
+       text: "Kennel",
        href: "/kennel",
        icon: 'sound_detection_dog_barking',
     },
     {
-      text: "FÔR",
-      href: "/produkter",
-      icon: 'pet_supplies',
+       text: "Omplassering",
+       href: "/omplassering-av-hund",
+       icon: 'favorite',
     },
     {
        text: "Om oss",
        href: "/om-oss",
-       icon: 'contacts_product',
+       icon: 'groups',
     },
     {
-      text: "Kontakt oss",
+      text: "Kontakt",
       href: "/kontakt-oss",
       icon: 'mail',
     },
@@ -71,7 +71,7 @@ export class NavbarComponent implements OnInit {
 }
 
 interface MenuItem {
-  text: String;
-  href: String;
-  icon?: String; // Optional
+  text: string;
+  href: string;
+  icon?: string;
 }

@@ -1,0 +1,111 @@
+<section class="bg-base-100 px-4 py-12 lg:py-20">
+  <div class="mx-auto grid w-full max-w-6xl items-center gap-10 lg:grid-cols-[1.05fr_0.95fr]">
+    <div>
+      <div class="badge badge-secondary mb-5 text-neutral">Omplassering</div>
+      <h1 class="text-4xl font-bold leading-tight text-neutral lg:text-5xl">
+        Omplassering av hund hos RettVest
+      </h1>
+      <p class="mt-6 text-lg leading-relaxed">
+        Noen ganger endrer livet seg. Det betyr ikke at kjærligheten til hunden
+        er borte, men at behovene dens kanskje ikke lenger kan ivaretas slik du
+        ønsker. Hos RettVest møter vi både hund og eier med ro, respekt og en
+        praktisk plan videre.
+      </p>
+      <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+        <a routerLink="/kontakt-oss" class="btn btn-primary text-white">
+          Ta kontakt
+        </a>
+        <a href="tel:004793487399" class="btn btn-outline">
+          Ring 934 87 399
+        </a>
+      </div>
+    </div>
+
+    <figure class="overflow-hidden rounded-lg border border-base-300 bg-base-200 shadow-lg">
+      <img
+        src="/assets/img/omplassering-jazz.jpg"
+        alt="Hund som søker et trygt nytt hjem"
+        class="h-full max-h-[620px] w-full object-cover object-center"
+      />
+      <figcaption class="px-4 py-3 text-sm text-base-content/70">
+        Et nytt hjem skal passe hunden, ikke bare være det første som dukker opp.
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="px-4 py-12">
+  <div class="mx-auto grid w-full max-w-6xl gap-8 lg:grid-cols-[0.9fr_1.1fr]">
+    <div>
+      <h2 class="text-3xl font-bold text-neutral">Slik jobber vi</h2>
+      <p class="mt-4 leading-relaxed">
+        Før vi leter etter et nytt hjem, bruker vi tid på å forstå hvem hunden
+        er. En god omplassering handler om ærlighet, forventninger og trygghet
+        for alle involverte.
+      </p>
+      <p class="mt-4 leading-relaxed">
+        Der det er nødvendig, kan hunden bo hos oss en periode. Da får vi sett
+        hvordan den håndterer vanlige situasjoner, og vi kan gi nye eiere et
+        realistisk bilde av både styrker, behov og små særegenheter.
+      </p>
+    </div>
+
+    <div class="rounded-lg border border-base-300 bg-base-100 p-6 shadow-sm">
+      <h3 class="text-xl font-bold text-neutral">Vi kartlegger blant annet</h3>
+      <ul class="mt-5 space-y-3">
+        <li
+          *ngFor="let item of assessmentItems"
+          class="flex gap-3 leading-relaxed"
+        >
+          <span class="material-symbols-outlined mt-0.5 text-primary">check_circle</span>
+          <span>{{ item }}</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="bg-base-200 px-4 py-12">
+  <div class="mx-auto grid w-full max-w-6xl gap-6 lg:grid-cols-3">
+    <article class="rounded-lg bg-base-100 p-6 shadow-sm">
+      <span class="material-symbols-outlined text-4xl text-primary">search</span>
+      <h2 class="mt-4 text-xl font-bold text-neutral">Riktig match</h2>
+      <p class="mt-3 leading-relaxed">
+        Vi ønsker ikke bare å finne et hjem raskt. Vi vil finne et hjem som
+        passer hundens personlighet, rutiner og behov.
+      </p>
+    </article>
+
+    <article class="rounded-lg bg-base-100 p-6 shadow-sm">
+      <span class="material-symbols-outlined text-4xl text-primary">groups</span>
+      <h2 class="mt-4 text-xl font-bold text-neutral">God dialog</h2>
+      <p class="mt-3 leading-relaxed">
+        Interesserte får veiledning underveis. Vi snakker om erfaring,
+        forventninger og hva de faktisk kan tilby hunden i hverdagen.
+      </p>
+    </article>
+
+    <article class="rounded-lg bg-base-100 p-6 shadow-sm">
+      <span class="material-symbols-outlined text-4xl text-primary">favorite</span>
+      <h2 class="mt-4 text-xl font-bold text-neutral">Trygg overgang</h2>
+      <p class="mt-3 leading-relaxed">
+        Mens hunden er hos oss, legger vi vekt på ro, rutiner, aktivitet og
+        individuell oppfølging. Vi holder kontakt underveis dersom du ønsker det.
+      </p>
+    </article>
+  </div>
+</section>
+
+<section class="px-4 py-14">
+  <div class="mx-auto max-w-3xl text-center">
+    <h2 class="text-3xl font-bold text-neutral">Trenger du hjelp?</h2>
+    <p class="mt-5 text-lg leading-relaxed">
+      Hvis du vurderer å omplassere hunden din, kan du ta kontakt for en
+      uforpliktende prat. Vi vet at dette ofte er en vanskelig situasjon, og vi
+      møter den med respekt, omsorg og faglig trygghet.
+    </p>
+    <a routerLink="/kontakt-oss" class="btn btn-primary mt-8 text-white">
+      Kontakt RettVest
+    </a>
+  </div>
+</section>

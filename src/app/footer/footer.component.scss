@@ -1,3 +1,33 @@
-.mail-icon {
-    margin-top: -6px;
+.footer-heading {
+  color: #ffffff;
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.footer-link {
+  color: rgba(247, 251, 246, 0.78);
+  transition:
+    color 160ms ease,
+    opacity 160ms ease;
+
+  &:hover,
+  &:focus-visible {
+    color: #ffffff;
+  }
+}
+
+.facebook-mark {
+  align-items: center;
+  border: 1px solid rgba(247, 251, 246, 0.25);
+  border-radius: 999px;
+  display: inline-flex;
+  font-family: Arial, sans-serif;
+  font-size: 0.875rem;
+  font-weight: 700;
+  height: 1.5rem;
+  justify-content: center;
+  line-height: 1;
+  width: 1.5rem;
 }
