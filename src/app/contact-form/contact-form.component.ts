@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { contactFormEnabled } from './contact-form.config.generated';
 
 type ContactFormData = {
   navn: string;
@@ -32,9 +33,15 @@ export class ContactFormComponent {
   errors: Partial<Record<keyof ContactFormData | 'submit', string>> = {};
   isSubmitting = false;
   showSuccess = false;
+  contactFormEnabled = contactFormEnabled;
 
   async handleSubmit(event: SubmitEvent): Promise<void> {
     event.preventDefault();
+
+    if (!this.contactFormEnabled) {
+      return;
+    }
+
     this.showSuccess = false;
     this.errors = this.getValidationErrors();
 
