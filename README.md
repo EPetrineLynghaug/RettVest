@@ -16,6 +16,16 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
+## Netlify Forms
+
+Kontaktskjemaet bruker Netlify Forms med form-navnet `kontakt`.
+
+Etter deploy: gå til Netlify → Project configuration → Notifications → Emails and webhooks → Form submission notifications → Add notification. Velg form `kontakt` og send nye innsendinger til `rvhjemmekennel@gmail.com`.
+
+Kontaktskjemaet kan skrus av ved build med miljøvariabelen `VITE_CONTACT_FORM_ENABLED=false`. Default er aktivt skjema hvis variabelen mangler, og bare verdien `false` deaktiverer det. Når skjemaet er deaktivert, bygges den synlige formen bort og Netlify Forms-detection-skjemaet utelates fra `index.generated.html`. Netlify-builden må gå via `npm run build`, slik at prebuild-scriptet får generert riktig konfigurasjon.
+
+For å aktivere igjen, fjern variabelen eller sett `VITE_CONTACT_FORM_ENABLED=true`, og kjør ny deploy/build.
+
 ## Running unit tests
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).

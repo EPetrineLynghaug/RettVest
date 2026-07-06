@@ -3,10 +3,14 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
+    "prestart": "node scripts/configure-contact-form.mjs",
     "start": "ng serve",
+    "prebuild": "node scripts/configure-contact-form.mjs",
     "build": "ng build",
+    "prewatch": "node scripts/configure-contact-form.mjs",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
+    "premobile": "node scripts/configure-contact-form.mjs",
     "mobile": "ng serve --host 0.0.0.0 --port 4200"
   },
   "private": true,

@@ -1,21 +1,26 @@
-<header class="z-50 navbar bg-base-200 fixed top-0 left-0 border-b-2 border-primary">
+<header class="fixed inset-x-0 top-0 z-[90] navbar bg-base-100/95 backdrop-blur border-b border-base-300 shadow-sm">
   <div class="navbar-start">
     <a
       routerLink="/"
-      class="text-xl flex flex-col cursor-pointer"
+      class="text-xl flex flex-col cursor-pointer leading-tight"
     >
-      <span class="font-bold">RettVest</span>
-      <small class="text-sm text-primary-content">
+      <span class="font-bold text-neutral">RettVest</span>
+      <small class="text-sm text-primary">
         Hjemmekennel & Pensjonat
       </small>
     </a>
   </div>
   <div class="navbar-end hidden xl:flex">
-    <ul class="menu menu-horizontal px-1">
+    <ul class="menu menu-horizontal px-1 gap-1">
       <li
         *ngFor="let menuItem of menuItems"
       >
-        <a routerLink="{{ menuItem.href }}"a>
+        <a
+          [routerLink]="menuItem.href"
+          routerLinkActive="bg-base-200 text-primary"
+          [routerLinkActiveOptions]="{ exact: menuItem.href === '/' }"
+          class="font-medium rounded-md"
+        >
           {{ menuItem.text }}
         </a>
       </li>
@@ -27,7 +32,7 @@
       <input type="checkbox" class="drawer-toggle" />
       <div class="drawer-content">
         <!-- Page content here -->
-        <label class="btn btn-square btn-primary text-white swap swap-rotate">
+        <label class="btn btn-square btn-primary text-white swap swap-rotate shadow-sm">
           
           <!-- this hidden checkbox controls the state -->
           <input type="checkbox" [(ngModel)]="menuOpen" />
@@ -43,7 +48,7 @@
 <div
   class="
     menu-sidebar
-    z-20
+    z-[80]
     fixed
     top-0
     w-full
@@ -51,18 +56,20 @@
     pt-20
     flex
     flex-col
-    bg-base-200
+    bg-base-100
+    border-r
+    border-base-300
   "
   ngClass="{{ menuOpen ? 'open' : 'closed' }}"
 >
 
-  <span class="text-xl font-bold py-2 px-6 uppercase">Meny</span>
+  <span class="text-xl font-bold py-2 px-6 uppercase text-neutral">Meny</span>
 
   <ul class="menu menu-sm w-full">
     <li *ngFor="let menuItem of menuItems">
       <a
         routerLink="{{ menuItem.href }}"
-        class="py-4 px-6 text-lg"
+        class="py-4 px-6 text-lg rounded-none"
       >
       <span class="material-symbols-outlined">
         {{ menuItem.icon }}

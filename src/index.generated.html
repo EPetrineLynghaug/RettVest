@@ -24,7 +24,22 @@
   <meta name="theme-color" content="#66CC8A">
 </head>
 <body data-theme="rettvest">
-<!-- CONTACT_FORM_PLACEHOLDER -->
+  <form name="kontakt" method="POST" action="/takk-for-henvendelsen" data-netlify="true" netlify-honeypot="bot-field" hidden>
+    <input type="hidden" name="form-name" value="kontakt">
+    <input name="bot-field">
+    <input type="text" name="navn">
+    <input type="email" name="epost">
+    <input type="tel" name="telefon">
+    <select name="henvendelse_type">
+      <option value="Hjemmekennel">Hjemmekennel</option>
+      <option value="Omplassering">Omplassering</option>
+      <option value="Annet">Annet</option>
+    </select>
+    <input type="text" name="hundens_navn">
+    <input type="date" name="fra_dato">
+    <input type="date" name="til_dato">
+    <textarea name="melding"></textarea>
+  </form>
   <app-root></app-root>
 </body>
 </html>

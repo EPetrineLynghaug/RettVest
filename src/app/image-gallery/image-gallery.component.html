@@ -1,17 +1,16 @@
 <div
   id="mainGallery"
-  class="splide p-0"
-  aria-label="Splide Basic HTML Example"
+  class="splide"
+  aria-label="Hverdagsglimt fra RettVest"
 >
   <div class="splide__track p-0">
-		<ul class="splide__list p-2">
+		<ul class="splide__list">
 
 			<li
         *ngFor="let image of images"
         class="
           splide__slide
           w-full
-          p-2
         "
       >
 
@@ -27,8 +26,6 @@
             w-full
             h-full
             object-cover
-            rounded-sm
-            shadow-md
           "
           alt="{{ image.alt }}"
         />

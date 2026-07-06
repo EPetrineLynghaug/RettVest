@@ -1,10 +1,43 @@
-.hero {
-    // Alternative image formats
-    background-image: -webkit-image-set(
-        url('/assets/img/front-page-hero.webp'),
-        url('/assets/img/front-page-hero.jpg'),
+.home-hero {
+  // Alternative image formats
+  background-image: -webkit-image-set(
+    url('/assets/img/front-page-hero.webp'),
+    url('/assets/img/front-page-hero.jpg'),
+  );
+  background-position: center 42%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.home-hero-overlay {
+  background: linear-gradient(
+    90deg,
+    rgba(19, 34, 27, 0.78) 0%,
+    rgba(19, 34, 27, 0.58) 34%,
+    rgba(19, 34, 27, 0.34) 62%,
+    rgba(19, 34, 27, 0.42) 100%
+  );
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .home-hero-overlay {
+    background: linear-gradient(
+      90deg,
+      rgba(19, 34, 27, 0.82) 0%,
+      rgba(19, 34, 27, 0.62) 42%,
+      rgba(19, 34, 27, 0.28) 72%,
+      rgba(19, 34, 27, 0.38) 100%
     );
-    background-size: cover;
-    background-position: center 35%;
-    background-repeat: no-repeat;
+  }
+}
+
+@media (max-width: 767px) {
+  .home-hero-overlay {
+    background: linear-gradient(
+      180deg,
+      rgba(19, 34, 27, 0.42) 0%,
+      rgba(19, 34, 27, 0.72) 48%,
+      rgba(19, 34, 27, 0.78) 100%
+    );
+  }
 }

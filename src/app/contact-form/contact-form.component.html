@@ -1,30 +1,276 @@
-<!-- TODO: Fix form and remove alert -->
-<!-- <div role="alert" class="alert alert-warning shadow-lg rounded-none">
-  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-neutral shrink-0 w-6 h-6">
-    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-  </svg>
-  <div>
-    <h3 class="font-bold">Kontakt skjema kommer snart!</h3>
-    <div class="text-sm">Mail funksjonen er under utvikling.</div>
-  </div>
-</div> -->
-
-<div class="hero min-h-screen">
-  <div class="hero-content flex-col lg:flex-row-reverse">
-    <div class="text-center lg:text-left">
-      <h1 class="text-5xl font-bold">Kontakt oss</h1>
-      <p class="py-6">
-        Kontakt oss for å reservere kennelplass eller kjøpe fôr. Vennligst
-        spesifiser mengden fôr du ønsker og om du vil hente det selv eller om vi
-        skal levere det. Vi vil svare så raskt som mulig, men det kan ta 2-3
-        arbeidsdager. Ring oss gjerne på tlf:
-        <a href="tel:004793487399" class="link link-primary">934 87 399</a> om
-        du lurer på noe.
+<section class="contact-page bg-base-100 px-5 py-12 md:px-8 md:py-16 lg:py-20">
+  <div class="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+    <div class="max-w-xl text-center lg:text-left">
+      <h1 class="text-4xl font-bold leading-tight text-neutral md:text-5xl">
+        Kontakt
+      </h1>
+      <p class="mt-3 text-xl font-semibold leading-tight text-primary">
+        Ta kontakt med RettVest
+      </p>
+      <p class="mt-5 text-lg leading-8 text-base-content/75">
+        Har du spørsmål om hjemmekennel, ledig plass eller omplassering?
+        Send oss gjerne en forespørsel, eller ring oss hvis du lurer på noe.
+      </p>
+      <p class="mt-5 text-base leading-7 text-base-content/75">
+        Telefon:
+        <a href="tel:+4793487399" class="link link-primary font-semibold">934 87 399</a>
       </p>
     </div>
 
-    <div class="card shrink-0 w-full lg:max-w-xl p-4 shadow-2xl bg-base-100">
-      <div id="hubspotForm"></div>
+    <div class="rounded-md bg-white p-5 shadow-[0_12px_36px_rgba(36,53,47,0.10)] md:p-8">
+      <ng-container *ngIf="contactFormEnabled; else contactFormDisabled">
+        <div
+          *ngIf="showSuccess"
+          #successMessage
+          tabindex="-1"
+          role="status"
+          aria-live="polite"
+          class="mb-6 rounded-md border border-primary/25 bg-base-200 p-5 shadow-[0_10px_28px_rgba(36,53,47,0.08)] focus:outline-none focus:ring-2 focus:ring-primary/30"
+        >
+          <h2 class="text-xl font-bold leading-tight text-neutral">
+            Takk for henvendelsen!
+          </h2>
+          <p class="mt-2 text-base leading-7 text-base-content/75">
+            Vi har mottatt meldingen din og tar kontakt så snart vi har mulighet.
+          </p>
+          <button
+            type="button"
+            class="btn btn-primary btn-sm mt-4 text-white"
+            (click)="clearSuccess()"
+          >
+            Lukk
+          </button>
+        </div>
+
+        <form
+          name="kontakt"
+          method="POST"
+          action="/takk-for-henvendelsen"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+          novalidate
+          class="space-y-5"
+          (submit)="handleSubmit($event)"
+        >
+          <input type="hidden" name="form-name" value="kontakt" />
+
+          <p hidden>
+            <label>
+              Ikke fyll ut dette feltet:
+              <input name="bot-field" />
+            </label>
+          </p>
+
+          <div class="grid gap-5 md:grid-cols-2">
+            <label class="form-control">
+              <span class="label-text font-semibold text-neutral">Navn</span>
+              <input
+                type="text"
+                name="navn"
+                autocomplete="name"
+                required
+                [(ngModel)]="formData.navn"
+                (blur)="validateField('navn')"
+                [class.input-error]="errors.navn"
+                [attr.aria-invalid]="errors.navn ? 'true' : null"
+                aria-describedby="navn-error"
+                class="input input-bordered mt-2 bg-base-100"
+              />
+              <span
+                *ngIf="errors.navn"
+                id="navn-error"
+                class="mt-2 text-sm text-error"
+              >
+                {{ errors.navn }}
+              </span>
+            </label>
+
+            <label class="form-control">
+              <span class="label-text font-semibold text-neutral">E-post</span>
+              <input
+                type="email"
+                name="epost"
+                autocomplete="email"
+                required
+                [(ngModel)]="formData.epost"
+                (blur)="validateField('epost')"
+                [class.input-error]="errors.epost"
+                [attr.aria-invalid]="errors.epost ? 'true' : null"
+                aria-describedby="epost-error"
+                class="input input-bordered mt-2 bg-base-100"
+              />
+              <span
+                *ngIf="errors.epost"
+                id="epost-error"
+                class="mt-2 text-sm text-error"
+              >
+                {{ errors.epost }}
+              </span>
+            </label>
+          </div>
+
+          <div class="grid gap-5 md:grid-cols-2">
+            <label class="form-control">
+              <span class="label-text font-semibold text-neutral">Telefon</span>
+              <input
+                type="tel"
+                name="telefon"
+                autocomplete="tel"
+                required
+                [(ngModel)]="formData.telefon"
+                (blur)="validateField('telefon')"
+                [class.input-error]="errors.telefon"
+                [attr.aria-invalid]="errors.telefon ? 'true' : null"
+                aria-describedby="telefon-error"
+                class="input input-bordered mt-2 bg-base-100"
+              />
+              <span
+                *ngIf="errors.telefon"
+                id="telefon-error"
+                class="mt-2 text-sm text-error"
+              >
+                {{ errors.telefon }}
+              </span>
+            </label>
+
+            <label class="form-control">
+              <span class="label-text font-semibold text-neutral">Hva gjelder henvendelsen?</span>
+              <select
+                name="henvendelse_type"
+                required
+                [(ngModel)]="formData.henvendelse_type"
+                (blur)="validateField('henvendelse_type')"
+                [class.select-error]="errors.henvendelse_type"
+                [attr.aria-invalid]="errors.henvendelse_type ? 'true' : null"
+                aria-describedby="henvendelse-type-error"
+                class="select select-bordered mt-2 bg-base-100"
+              >
+                <option value="Hjemmekennel">Hjemmekennel</option>
+                <option value="Omplassering">Omplassering</option>
+                <option value="Annet">Annet</option>
+              </select>
+              <span
+                *ngIf="errors.henvendelse_type"
+                id="henvendelse-type-error"
+                class="mt-2 text-sm text-error"
+              >
+                {{ errors.henvendelse_type }}
+              </span>
+            </label>
+          </div>
+
+          <div class="grid gap-5 md:grid-cols-2">
+            <label class="form-control">
+              <span class="label-text font-semibold text-neutral">Hundens navn, hvis relevant</span>
+              <input
+                type="text"
+                name="hundens_navn"
+                [(ngModel)]="formData.hundens_navn"
+                class="input input-bordered mt-2 bg-base-100"
+              />
+            </label>
+
+            <label class="form-control">
+              <span class="label-text font-semibold text-neutral">Fra dato</span>
+              <input
+                type="date"
+                name="fra_dato"
+                [(ngModel)]="formData.fra_dato"
+                (change)="validateField('fra_dato')"
+                [class.input-error]="errors.fra_dato"
+                [attr.aria-invalid]="errors.fra_dato ? 'true' : null"
+                aria-describedby="dato-error"
+                class="input input-bordered mt-2 bg-base-100"
+              />
+            </label>
+          </div>
+
+          <div class="grid gap-5 md:grid-cols-2">
+            <label class="form-control">
+              <span class="label-text font-semibold text-neutral">Til dato</span>
+              <input
+                type="date"
+                name="til_dato"
+                [(ngModel)]="formData.til_dato"
+                (change)="validateField('til_dato')"
+                [class.input-error]="errors.fra_dato"
+                [attr.aria-invalid]="errors.fra_dato ? 'true' : null"
+                aria-describedby="dato-error"
+                class="input input-bordered mt-2 bg-base-100"
+              />
+            </label>
+
+            <p class="self-end text-sm leading-6 text-base-content/60">
+              Datoene gjelder ønsket periode for kennelopphold. For omplassering eller andre spørsmål kan feltene stå tomme.
+            </p>
+          </div>
+
+          <p
+            *ngIf="errors.fra_dato"
+            id="dato-error"
+            class="-mt-3 text-sm text-error"
+          >
+            {{ errors.fra_dato }}
+          </p>
+
+          <label class="form-control">
+            <span class="label-text font-semibold text-neutral">Melding</span>
+            <textarea
+              name="melding"
+              rows="6"
+              required
+              minlength="5"
+              [(ngModel)]="formData.melding"
+              (blur)="validateField('melding')"
+              [class.textarea-error]="errors.melding"
+              [attr.aria-invalid]="errors.melding ? 'true' : null"
+              aria-describedby="melding-error"
+              class="textarea textarea-bordered mt-2 min-h-36 bg-base-100"
+            ></textarea>
+            <span
+              *ngIf="errors.melding"
+              id="melding-error"
+              class="mt-2 text-sm text-error"
+            >
+              {{ errors.melding }}
+            </span>
+          </label>
+
+          <p
+            *ngIf="errors.submit"
+            class="rounded-md border border-error/20 bg-error/5 p-3 text-sm leading-6 text-error"
+          >
+            {{ errors.submit }}
+          </p>
+
+          <button
+            type="submit"
+            class="btn btn-primary w-full text-white md:w-auto"
+            [disabled]="isSubmitting"
+          >
+            {{ isSubmitting ? 'Sender...' : 'Send henvendelse' }}
+          </button>
+
+          <p class="border-t border-base-300 pt-5 text-sm leading-6 text-base-content/65">
+            Når du sender inn skjemaet, bruker vi opplysningene dine til å svare på henvendelsen din.
+            Ikke send sensitive opplysninger i skjemaet.
+            <a routerLink="/personvern" class="link link-primary font-semibold">
+              Les mer i personvernerklæringen.
+            </a>
+          </p>
+        </form>
+      </ng-container>
+
+      <ng-template #contactFormDisabled>
+        <div
+          role="status"
+          class="rounded-md border border-primary/20 bg-base-200 p-5 text-base leading-7 text-base-content/75"
+        >
+          Kontaktskjemaet er midlertidig stengt. Ring oss gjerne på
+          <a href="tel:+4793487399" class="link link-primary font-semibold">934 87 399</a>
+          dersom det haster.
+        </div>
+      </ng-template>
     </div>
   </div>
-</div>
+</section>
