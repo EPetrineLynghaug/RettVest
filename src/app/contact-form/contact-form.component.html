@@ -43,6 +43,7 @@
         </div>
 
         <form
+          #contactForm="ngForm"
           name="kontakt"
           method="POST"
           action="/takk-for-henvendelsen"
@@ -50,7 +51,7 @@
           netlify-honeypot="bot-field"
           novalidate
           class="space-y-5"
-          (submit)="handleSubmit($event)"
+          (ngSubmit)="handleSubmit($event, contactForm)"
         >
           <input type="hidden" name="form-name" value="kontakt" />
 
@@ -85,26 +86,27 @@
               </span>
             </label>
 
-            <label class="form-control">
-              <span class="label-text font-semibold text-neutral">E-post</span>
+            <label for="email" class="form-control">
+              <span class="label-text font-semibold text-neutral">E-postadresse</span>
               <input
+                id="email"
                 type="email"
-                name="epost"
+                name="email"
                 autocomplete="email"
                 required
-                [(ngModel)]="formData.epost"
-                (blur)="validateField('epost')"
-                [class.input-error]="errors.epost"
-                [attr.aria-invalid]="errors.epost ? 'true' : null"
-                aria-describedby="epost-error"
+                [(ngModel)]="formData.email"
+                (blur)="validateField('email')"
+                [class.input-error]="errors.email"
+                [attr.aria-invalid]="errors.email ? 'true' : null"
+                aria-describedby="email-error"
                 class="input input-bordered mt-2 bg-base-100"
               />
               <span
-                *ngIf="errors.epost"
-                id="epost-error"
+                *ngIf="errors.email"
+                id="email-error"
                 class="mt-2 text-sm text-error"
               >
-                {{ errors.epost }}
+                {{ errors.email }}
               </span>
             </label>
           </div>

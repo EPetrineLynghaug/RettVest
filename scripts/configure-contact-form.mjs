@@ -8,7 +8,7 @@ const hiddenNetlifyContactForm = `  <form name="kontakt" method="POST" action="/
     <input type="hidden" name="form-name" value="kontakt">
     <input name="bot-field">
     <input type="text" name="navn">
-    <input type="email" name="epost">
+    <input type="email" name="email">
     <input type="tel" name="telefon">
     <select name="henvendelse_type">
       <option value="Hjemmekennel">Hjemmekennel</option>
