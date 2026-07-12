@@ -1,12 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Component, ElementRef, ViewChild } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { contactFormEnabled } from './contact-form.config.generated';
 
 type ContactFormData = {
   navn: string;
-  epost: string;
+  email: string;
   telefon: string;
   henvendelse_type: string;
   hundens_navn: string;
@@ -35,21 +35,28 @@ export class ContactFormComponent {
   showSuccess = false;
   contactFormEnabled = contactFormEnabled;
 
-  async handleSubmit(event: SubmitEvent): Promise<void> {
+  async handleSubmit(event: SubmitEvent, formDirective?: NgForm): Promise<void> {
     event.preventDefault();
 
-    if (!this.contactFormEnabled) {
+    if (!this.contactFormEnabled || this.isSubmitting) {
       return;
     }
 
     this.showSuccess = false;
+    this.formData.email = this.formData.email.trim();
     this.errors = this.getValidationErrors();
 
     if (Object.keys(this.errors).length > 0) {
+      formDirective?.control.markAllAsTouched();
       return;
     }
 
     const form = event.target as HTMLFormElement;
+    const emailInput = form.elements.namedItem('email') as HTMLInputElement | null;
+    if (emailInput) {
+      emailInput.value = this.formData.email;
+    }
+
     const formBody = new URLSearchParams();
     new FormData(form).forEach((value, key) => {
       formBody.append(key, value.toString());
@@ -106,15 +113,18 @@ export class ContactFormComponent {
 
   private getValidationErrors(): Partial<Record<keyof ContactFormData, string>> {
     const errors: Partial<Record<keyof ContactFormData, string>> = {};
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const emailPattern = /^[^\s@]+@[^\s@]+$/;
     const phonePattern = /^[+0-9 ]{5,}$/;
+    const email = this.formData.email.trim();
 
     if (!this.formData.navn.trim()) {
       errors.navn = 'Skriv inn navn.';
     }
 
-    if (!emailPattern.test(this.formData.epost.trim())) {
-      errors.epost = 'Skriv inn en gyldig e-postadresse.';
+    if (!email) {
+      errors.email = 'Skriv inn e-postadressen din.';
+    } else if (!emailPattern.test(email)) {
+      errors.email = 'Skriv inn en gyldig e-postadresse.';
     }
 
     if (!phonePattern.test(this.formData.telefon.trim())) {
@@ -143,7 +153,7 @@ export class ContactFormComponent {
   private getEmptyFormData(): ContactFormData {
     return {
       navn: '',
-      epost: '',
+      email: '',
       telefon: '',
       henvendelse_type: '',
       hundens_navn: '',
